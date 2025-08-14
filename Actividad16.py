@@ -42,3 +42,18 @@ class Gestor_Usuarios:
             for usuario in self.usuarios.values():
                 print(f"{usuario.nombre} - {usuario.carnet} - {usuario.carrera}")
 class Gestor_Prestamos:
+    def __init__(self):
+        self.gestor_libross=Gestor_Libros()
+        self.gestor_usuarioss=Gestor_Usuarios()
+        self.libros_presstados=[]
+
+    def prestar_libros(self):
+        usuario=self.gestor_usuarioss.buscar_usuario(carnet)
+        libro=self.gestor_libross.buscar_libro(cod_unico)
+        if not usuario:
+            raise ValueError("No hay usuario registrado")
+        if not libro:
+            raise ValueError("No hay libro registrado")
+        if not libro.disponible:
+            raise ValueError("El libro no esta disponible")
+
